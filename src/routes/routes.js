@@ -1,3 +1,5 @@
+import CourseDetails from "../Pages/CourseDetails/CourseDetails";
+
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layouts/Main");
 const { default: Blogs } = require("../Pages/Blogs/Blogs");
@@ -16,7 +18,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                loader: () => fetch('https://encode-tutorial-server.vercel.app/courses')
             },
             {
                 path: '/faq',
@@ -26,6 +29,11 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/course/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({params}) => fetch(`https://encode-tutorial-server.vercel.app/course/${params.id}`)
             },
         ]
     }
