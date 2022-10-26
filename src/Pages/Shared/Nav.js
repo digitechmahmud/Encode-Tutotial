@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext} from '../../context/AuthProvider';
+import { AuthContext } from '../../context/AuthProvider';
+import logo from '../../images/logo.png';
+import { HiSun, HiMoon } from "react-icons/hi";
 
 const Nav = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -9,7 +11,7 @@ const Nav = () => {
 
         <div className="navbar text-white bg-neutral text-neutral-content flex justify-between">
             <div >
-                <Link to='/' className="btn btn-ghost normal-case text-xl">Encode</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"><img width={40} height={30} src={logo} alt='' />Encode</Link>
             </div>
 
             <div>
@@ -35,7 +37,7 @@ const Nav = () => {
                 }
                
                 
-                <input type="checkbox" className="toggle toggle-accent  "/>
+                <HiMoon/><input type="checkbox" className="toggle toggle-accent  " /><HiSun/>
             </div>
             
         </div>

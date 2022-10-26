@@ -5,7 +5,7 @@ const Courses = () => {
     const courses = useLoaderData([]);
 
     return (
-        <div className='flex mt-4 ml-5'>
+        <div className='flex mt-4 ml-5 mb-5'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6 '>
                 {
                     courses.map(course => <div className="card w-80 bg-base-100 shadow-2xl border-x-2 border-y-2 hover:border-slate-500 ">
