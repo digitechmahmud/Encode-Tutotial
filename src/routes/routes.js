@@ -1,5 +1,6 @@
 import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
+import Footer from "../Pages/Shared/Footer";
 import Login from "../Pages/Shared/Login";
 import Register from "../Pages/Shared/Register";
 import PrivateRoute from "./PrivateRoute";
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/home',
                 element: <Home></Home>
             },
             {
@@ -53,6 +58,10 @@ export const router = createBrowserRouter([
                 loader: ({params}) => fetch(`https://encode-tutorial-server.vercel.app/checkout/${params.id}`)
 
             },
+            {
+                path: '/footer',
+                element: <Footer></Footer>
+            }
             
             
         ]

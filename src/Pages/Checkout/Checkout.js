@@ -14,6 +14,7 @@ const Checkout = () => {
                 <div className="card-actions justify-end">
                     <button className="btn bg-slate-500">Payment</button>
                 </div>
+                
             </div>
         </div>
     );
