@@ -11,14 +11,17 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const signInGoogle = (googleProvider) => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
@@ -51,7 +54,8 @@ const AuthProvider = ({ children }) => {
         signInGoogle,
         logOut,
         userProfileUpdate,
-        signInGithub
+        signInGithub,
+        loading
     }
     return (
         <div>

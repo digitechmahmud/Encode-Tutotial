@@ -32,7 +32,7 @@ const Nav = () => {
                         </>
                 }
                 
-                <input type="checkbox" className="toggle toggle-md"/>
+                <input type="checkbox" className="toggle toggle-accent  "/>
             </div>
             
         </div>

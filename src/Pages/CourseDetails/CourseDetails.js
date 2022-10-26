@@ -15,15 +15,15 @@ const CourseDetails = () => {
                 <img src={data.picture} className="max-w-sm rounded-lg shadow-2xl" />
                 <div>
                     <Pdf targetRef={ref} filename="code-example.pdf">
-                        {({ toPdf }) => <button className='btn btn-success' onClick={toPdf}>Download Pdf</button>}
+                        {({ toPdf }) => <button className='btn bg-slate-500' onClick={toPdf}>Download Pdf</button>}
                     </Pdf>
                     <div ref={ref}>
                         <h1 className="text-5xl font-bold">{data.title}</h1>
                         <p className="py-6">{data.coursedetails}</p>
                     </div>
 
-                    <Link to='/courses'><button className="btn btn-primary">Back to courses</button></Link>
-                    <Link to={`/checkout/${data.id}`}><button className="btn btn-warning">Get Premium Access</button></Link>
+                    <Link to='/courses'><button className="btn bg-slate-500">Back to courses</button></Link>
+                    <Link to={`/checkout/${data.id}`}><button className="btn bg-slate-500">Get Premium Access</button></Link>
                 </div>
             </div>
         </div>

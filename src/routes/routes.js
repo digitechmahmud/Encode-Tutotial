@@ -2,6 +2,7 @@ import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Login from "../Pages/Shared/Login";
 import Register from "../Pages/Shared/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layouts/Main");
@@ -48,7 +49,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <Checkout></Checkout>
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+                loader: ({params}) => fetch(`https://encode-tutorial-server.vercel.app/checkout/${params.id}`)
 
             },
             
