@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext} from '../../context/AuthProvider';
 
 const Nav = () => {
+    const { user, logOut } = useContext(AuthContext);
+
     return (
 
         <div className="navbar text-white bg-neutral text-neutral-content flex justify-between">
@@ -15,10 +18,23 @@ const Nav = () => {
                 <Link to='/blogs' className="btn btn-ghost normal-case text-xl">Blogs</Link>
             </div>
             <div>
-                <Link to='/login' className="btn btn-ghost normal-case text-xl">Login</Link>
-                <Link to='/register' className="btn btn-ghost normal-case text-xl">Register</Link>
+                {
+                    user?.uid ?
+                        <>
+                            <span><img className='w-2/3 rounded-full' src={user.photoURL} alt='' /></span>
+                            <span>{user.displayName}</span>
+                            <Link onClick={logOut} className="btn btn-ghost normal-case text-xl">Log out</Link>
+                        </>
+                        :
+                        <>
+                            <Link to='/login' className="btn btn-ghost normal-case text-xl">Login</Link>
+                            <Link to='/register' className="btn btn-ghost normal-case text-xl">Register</Link>
+                        </>
+                }
+                
                 <input type="checkbox" className="toggle toggle-md"/>
             </div>
+            
         </div>
     );
 };

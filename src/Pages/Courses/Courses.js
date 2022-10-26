@@ -1,14 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { DetailsProvider } from '../../context/DetailsContext';
 
 
 const Courses = () => {
-    const { details } = useContext(DetailsProvider);
     const courses = useLoaderData([]);
-    // const { title, price, rating } = courses;
-
-    console.log(details);
 
     return (
         <div className='flex mt-4 ml-5'>
