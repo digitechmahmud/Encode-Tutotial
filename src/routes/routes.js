@@ -1,4 +1,6 @@
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
+import Login from "../Pages/Shared/Login";
+import Register from "../Pages/Shared/Register";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layouts/Main");
@@ -35,6 +37,15 @@ export const router = createBrowserRouter([
                 element: <CourseDetails></CourseDetails>,
                 loader: ({params}) => fetch(`https://encode-tutorial-server.vercel.app/course/${params.id}`)
             },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
+            
         ]
     }
 ]);

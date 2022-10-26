@@ -15,7 +15,9 @@ const Nav = () => {
                 <Link to='/blogs' className="btn btn-ghost normal-case text-xl">Blogs</Link>
             </div>
             <div>
-                <input type="checkbox" className="toggle toggle-md" />
+                <Link to='/login' className="btn btn-ghost normal-case text-xl">Login</Link>
+                <Link to='/register' className="btn btn-ghost normal-case text-xl">Register</Link>
+                <input type="checkbox" className="toggle toggle-md"/>
             </div>
         </div>
     );
