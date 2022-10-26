@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { user, signIn, signInGoogle } = useContext(AuthContext);
+    const { user, signIn, signInGoogle, signInGithub } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const navigate = useNavigate();
 
     const handleLoginForm = (e) => {
         e.preventDefault();
@@ -20,8 +23,20 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                navigate('/courses')
             })
             .catch(error => console.error(error));
+    }
+
+    const handleGithubSignIn = () => {
+        signInGithub(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/courses')
+                
+            })
+            .catch(error => console.log(error));
     }
 
     const handleGoogleSignIn = () =>{
@@ -29,6 +44,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/courses')
             })
             .catch(error => console.error(error));
     }
@@ -66,7 +82,7 @@ const Login = () => {
                             <h2>Or login using:</h2>
                             <div className='flex'>
                                 <Link onClick={handleGoogleSignIn} className='text-5xl mr-5'><FcGoogle /></Link>
-                                <Link className='text-5xl'><FaGithub /></Link>
+                                <Link onClick={handleGithubSignIn} className='text-5xl'><FaGithub /></Link>
                             </div>
                         </div>
                     </div>

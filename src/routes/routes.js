@@ -1,3 +1,4 @@
+import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Login from "../Pages/Shared/Login";
 import Register from "../Pages/Shared/Register";
@@ -44,6 +45,11 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/checkout/:id',
+                element: <Checkout></Checkout>
+
             },
             
             

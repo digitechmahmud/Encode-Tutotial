@@ -3,11 +3,12 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { user, createUser, signInGoogle } = useContext(AuthContext);
+    const { user, createUser, signInGoogle, userProfileUpdate, signInGithub } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const navigate = useNavigate();
 
     const handleRegisterForm = (e) => {
@@ -21,6 +22,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                handleUpdateProfile(name, photoURL);
                 form.reset();
                 navigate('/courses');
             })
@@ -36,6 +38,28 @@ const Register = () => {
             })
             .catch(error => console.error(error));
     }
+
+    const handleGithubRegister = () => {
+        signInGithub(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/courses')
+
+            })
+            .catch(error => console.log(error));
+    }
+
+    const handleUpdateProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        userProfileUpdate(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -81,7 +105,7 @@ const Register = () => {
                             <h2>Or register using:</h2>
                             <div className='flex'>
                                 <Link onClick={handleGoogleRegister} className='text-5xl mr-5'><FcGoogle /></Link>
-                                <Link className='text-5xl'><FaGithub /></Link>
+                                <Link onClick={handleGithubRegister} className='text-5xl'><FaGithub /></Link>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ const Nav = () => {
                 {
                     user?.uid ?
                         <>
-                            <span><img className='w-2/3 rounded-full' src={user.photoURL} alt='' /></span>
+                            <span><img className='rounded-full' src={user.photoURL} alt='' width={40} height={30} /></span>
                             <span>{user.displayName}</span>
                             <Link onClick={logOut} className="btn btn-ghost normal-case text-xl">Log out</Link>
                         </>
