@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
+    const [error, setError] = useState('');
     const { user, createUser, signInGoogle, userProfileUpdate, signInGithub } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -22,11 +24,14 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setError('');
                 handleUpdateProfile(name, photoURL);
                 form.reset();
                 navigate('/courses');
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                toast.error(error.message);
+            });
         
     }
     const handleGoogleRegister = () => {
@@ -36,7 +41,9 @@ const Register = () => {
                 console.log(user);
                 navigate('/courses');
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                toast.error(error.message);
+            });
     }
 
     const handleGithubRegister = () => {
@@ -47,7 +54,9 @@ const Register = () => {
                 navigate('/courses')
 
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                toast.error(error.message);
+            });
     }
 
     const handleUpdateProfile = (name, photoURL) => {
@@ -65,9 +74,10 @@ const Register = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="py-6">Learn Coding Online
+                        With Professional Instructors.!!</p>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-l-4 border-slate-500">
                     <div className="card-body">
                         <form onSubmit={handleRegisterForm}>
                             <div className="form-control">
@@ -98,7 +108,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn bg-slate-500">Register</button>
                             </div>
                         </form>
                         <div>
@@ -111,6 +121,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <Toaster/>
         </div>
     );
 };

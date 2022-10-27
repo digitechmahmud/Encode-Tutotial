@@ -1,14 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
+    const [error, setError] = useState('');
     const { user, signIn, signInGoogle, signInGithub } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+
+    
 
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -25,10 +29,14 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset();
+                setError('');
+                toast.success('Successfully loged in');
                 navigate(from, { replace: true });
+                form.reset();
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                toast.error(error.message);
+            });
     }
 
     const handleGithubSignIn = () => {
@@ -36,10 +44,13 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Successfully log in');
                 navigate(from, { replace: true });
                 
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                toast.error(error.message);
+            });
     }
 
     const handleGoogleSignIn = () =>{
@@ -47,18 +58,23 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Successfully log in');
                 navigate(from, { replace: true });
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                toast.error(error.message);
+            });
     }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="py-6">
+                        Learn Coding Online
+                        With Professional Instructors.!!</p>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-l-4 border-slate-500">
                     <div className="card-body">
                         <form onSubmit={handleLoginForm}>
                             <div className="form-control">
@@ -78,7 +94,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn bg-slate-500">Login</button>
                             </div>
                         </form>
                         <div>
@@ -91,6 +107,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <Toaster/>
         </div>
     );
 };
