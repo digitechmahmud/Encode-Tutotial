@@ -1,5 +1,6 @@
 import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
+import ErrorMessage from "../Pages/ErrorMessage/ErrorMessage";
 import Footer from "../Pages/Shared/Footer";
 import Login from "../Pages/Shared/Login";
 import Register from "../Pages/Shared/Register";
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<ErrorMessage></ErrorMessage>,
         children: [
             {
                 path: '/',
