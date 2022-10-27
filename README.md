@@ -4,6 +4,7 @@
 ### Website live link: https://encode-tutorial-32050.web.app
 
 ## Technology used ##
+
 # React JavaScript library 
 # Firebase
 # Tailwind CSS framework
