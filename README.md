@@ -9,20 +9,15 @@
 # Tailwind CSS framework
 # Daisy UI 
 
- Markup : * Bullet list
- Markup : * Bullet list
- Markup : * Bullet list
- Markup : * Bullet list
+## Feature & Functionality ##
+
+ Markup : * It's Programming course related website.
+ Markup : * All data serve from node express js server dynamically.
+ Markup : * Pass data from server using params.
+ Markup : * Using firebase authentication system. 
+ Markup : * And use react router and private route also. 
         
 
-
-
-## Feature & Functionality ##
-* It's Programming course related website.
-* All data serve from node express js server dynamically. 
-* Pass data from server using params. 
-* Using firebase authentication system. 
-* And use react router and private route also. 
 
 
 
