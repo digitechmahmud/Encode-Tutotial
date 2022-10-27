@@ -3,18 +3,26 @@
 ### Website Name: Encode
 ### Website live link: https://encode-tutorial-32050.web.app
 
-## Technology used:
+## Technology used ##
 # React JavaScript library 
 # Firebase
 # Tailwind CSS framework
 # Daisy UI 
 
-## Feature & Functionality: 
-# It's Programming course related website.
-# All data serve from node express js server dynamically. 
-# Pass data from server using params. 
-# Using firebase authentication system. 
-# And use react router and private route also. 
+ Markup : * Bullet list
+ Markup : * Bullet list
+ Markup : * Bullet list
+ Markup : * Bullet list
+        
+
+
+
+## Feature & Functionality ##
+* It's Programming course related website.
+* All data serve from node express js server dynamically. 
+* Pass data from server using params. 
+* Using firebase authentication system. 
+* And use react router and private route also. 
 
 
 
