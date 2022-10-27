@@ -12,7 +12,7 @@ const Courses = () => {
                         <figure><img src={course.picture} alt="Shoes" /></figure>
                         <div className="card-body">
                             <div className='flex justify-between'>
-                                <p>Price: ${course.price}</p>
+                                <p>Duration: {course.duration}</p>
                                 <p>Ratings: {course.rating}</p>
                             </div>
                             <h2 className="card-title">{course.title}</h2>              

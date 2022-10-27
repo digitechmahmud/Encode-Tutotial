@@ -5,7 +5,7 @@ const Checkout = () => {
     const checkoutData = useLoaderData();
     // console.log(checkoutData);
     return (
-        <div className="card w-96 bg-base-100 shadow-xl image-full mx-auto mt-10 ">
+        <div className="card w-96 bg-base-100 shadow-xl image-full mx-auto mt-10 mb-20">
             <figure><img src={checkoutData.picture} alt="checkout" /></figure>
             <div className="card-body hover:bg-slate-800">
                 <h2 className="card-title">{checkoutData.title}</h2>
