@@ -42,7 +42,7 @@ const Home = () => {
             </div>
             <div className="hero min-h-screen bg-base-200 border-b-2 border-slate-500 mb-4">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src="https://placeimg.com/260/400/arch" className="max-w-sm rounded-lg shadow-2xl" />
+                    <img src="https://raw.githubusercontent.com/digitechmahmud/images/main/home2.jpg" className="max-w-sm rounded-lg shadow-2xl" />
                     <div>
                         <h1 className="text-5xl font-bold">We Provide The Best Course & Online Tutorial For You!</h1>
                         <p className="py-6">Encode has been used by more than 2 million people to develop their skills or for their careers, this site is entirely for purposes — Programming Courses
