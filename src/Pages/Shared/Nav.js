@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import logo from '../../images/logo.png';
-import { HiSun, HiMoon, HiMenu } from "react-icons/hi";
+
 
 
 const Nav = () => {
@@ -28,7 +28,7 @@ const Nav = () => {
                             user?.uid ?
                                 <>
                                     <div className="tooltip tooltip-left" data-tip={user.displayName}>
-                                        <img className='rounded-full' src={user.photoURL} alt="" width={40} height={30} />
+                                <Link to='/profile'><img className='rounded-full' src={user.photoURL} alt="" width={40} height={30} /></Link>
                                     </div>
                                     <Link onClick={logOut} className="btn btn-ghost normal-case text-xl">Log out</Link>
                                 </>
