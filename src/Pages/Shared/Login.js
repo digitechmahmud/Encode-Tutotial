@@ -64,6 +64,7 @@ const Login = () => {
             .catch(error => {
                 toast.error(error.message);
             });
+    
     }
     return (
         <div className="hero min-h-screen bg-base-200">
