@@ -4,6 +4,7 @@ import img1 from '../../images/img1.png';
 import carousal1 from '../../images/carousal1.jpg';
 
 const Home = () => {
+  
     return (
         <div>
             <div className="carousel w-full mb-4">
